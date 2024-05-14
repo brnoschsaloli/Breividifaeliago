@@ -35,7 +35,7 @@ def calular_matriz_senos(c, s): # recebe um angulo em radianos e devolve a matri
         [-c*s, -s**2, c*s, s**2]
     ]
 
-# print(calular_matriz_senos(np.pi/2)[0][0], cos(np.pi/2), cos(np.pi/2)**2)
+# print(calular_matriz_senos(np.pi/2)[0][0], np.cos(np.pi/2), np.cos(np.pi/2)**2)
 
 E = 200 * 10**9
 A = 6 * 10**(-5)
@@ -113,7 +113,7 @@ for elemento in elementos:
             if (elemento["graus"][i] not in graus_restritos and elemento["graus"][j] not in graus_restritos):
                 k_g[elemento["graus"][i] - 2][elemento["graus"][j] - 2] += (E*A/elemento["l"]) * elemento["k"][i][j]
 
-print(K[31])
+# print(K[31])
 
 P = [
     0, # 1
