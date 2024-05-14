@@ -158,21 +158,29 @@ for i in range(n_pontos*2):
         indice += 1
 
 # print(u)
-print(U)
+# print(U)
+for i in range(len(U)):
+    if i % 2 == 0:
+        print(f"Ponto {pontos[i//2]}, eixo x --> u{i} = {U[i]:.8f} m")
+    else:
+        print(f"Ponto {pontos[i//2]}, eixo y --> u{i} = {U[i]:.8f} m")
 
 # print(k_g[0])
 # print(K[31])
 
+print("-------------------------")
 for elemento in elementos:
     matriz_deformacao = [-elemento["c"], -elemento["s"], elemento["c"], elemento["s"]]
     tensao = 0
     for i in range(4):
         tensao += matriz_deformacao[i] * elemento["graus"][i]
     tensao = (E/elemento["l"]) * tensao
+    print(f"Elemento com nós em {pontos[elemento['pontos'][0]]} e {pontos[elemento['pontos'][1]]} --> tensão = {tensao} Pa")
+print("-------------------------")
 
-R1x = 0
-R1y = 0
-R2y = 0
+R1x = 0 # Nó mais da esquerda
+R1y = 0 # Nó mais da esquerda
+R2y = 0 # Nó mais da direita
 for i in range(n_pontos*2):
     R1x += K[0][i] * U[i]
     R1y += K[1][i] * U[i]
